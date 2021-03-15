@@ -1,0 +1,23 @@
+{% extends 'common.html' %}
+{% load static %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+
+  {% block content %}
+
+<div class="container">
+    <p>
+        <p><b>Username:</b>{{ user.username}}</p>
+        
+       </p>
+       <p> 
+         
+           <img src="{{ user.userprofile.head_shot.url}}" width="220">
+
+    </p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'common.html' %}
+
+{% load static %}
+{% block head %}
+<title>Registration form</title>
+{% endblock %}
+
+
+
+  {% block content %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+  <h1 style="text-align: center;">Welcome: {{user.username}}</h1><br>
+  <h5 style="text-align: center;">Please complete the registration process by uploading your image.</h5>
+    <form class="modal-content animate" method="POST" action="{% url 'snap' %}" enctype = "multipart/form-data" >
+      <div class="imgcontainer">
+        <img src="{% static 'images/facebook-blank-face-blank.jpeg' %}" alt="Avatar" class="avatar">
+      </div>
+
+      <div class="container">
+        {% csrf_token %}
+        <div class="content">
+            <label for="image"><b>Upload your image</b></label>
+            <br>
+            <input type="file" id="myFile" name="filename">
+            <button type="submit" >Submit</button>
+      </div>
+
+     
+    </form>
+  
+
+  <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
+
+
+
+
+
+
+<html>
+    <body>
+
+        complete the Registration
+<br>
+        <h1>{{user.username}}</h1>
+
+    </body>
+</html>
+
+

@@ -1,0 +1,45 @@
+{% extends 'common.html' %}
+
+{% load static %}
+{% block head %}
+<title>Registration form</title>
+{% endblock %}
+
+
+  {% block content %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  {{form.errors}}
+
+
+    <form class="modal-content animate" method="POST" action="{% url 'register' %}" >
+      <div class="imgcontainer">
+        <img src="{% static 'images/facebook-blank-face-blank.jpeg' %}" alt="Avatar" class="avatar">
+      </div>
+
+      <div class="container">
+        {% csrf_token %}
+        <div class="content">
+        {% if form.error %}
+        <p> {{form.errors}}</p>
+        {% endif %}
+        <h4>
+        <p>Username  :{{ form.username }}</p>
+        <!-- <p>First_name:{{ form.first_name }}</p>
+        <p>Last_name :{{ form.last_name }}</p>
+        <p>Email     :{{ form.email }}</p> -->
+        <p>Password  :{{ form.password1}}</p>
+        <p>confirm Password:{{ form.password2}}</p>
+        {{error}}
+        </h4>
+        
+        <input type="submit" value="Register">
+      </div>
+
+    </div>
+    </form>
+   
+ 
+  <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
+
